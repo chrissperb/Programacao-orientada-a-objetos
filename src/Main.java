@@ -96,17 +96,18 @@ public class Main {
             case 1:
                 switch (opcao) {
                     case 1:
-                        // Exemplo: new atividade1.Animal().executar();
                         System.out.println("Executando classe Animal...");
                         break;
                     case 2:
-                        // Exemplo: new atividade1.Carro().executar();
                         System.out.println("Executando classe Carro...");
                         break;
                     case 3:
                         System.out.println("Executando classe Circulo...");
                         atividade1.Circulo.executar();
                         break;
+                    case 7:
+                        System.out.println("Executando classe Pessoa...");
+                        atividade1.Pessoa.executar();
                 }
                 break;
         }
