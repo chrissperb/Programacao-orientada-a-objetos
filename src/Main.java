@@ -104,15 +104,14 @@ public class Main {
                         System.out.println("Executando classe Carro...");
                         break;
                     case 3:
-                        // Exemplo: new atividade1.Circulo().executar();
                         System.out.println("Executando classe Circulo...");
+                        atividade1.Circulo.executar();
                         break;
                 }
                 break;
         }
 
         System.out.println("\nPressione ENTER para continuar...");
-        scanner.nextLine();
         scanner.nextLine();
     }
 
