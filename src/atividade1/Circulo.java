@@ -1,6 +1,7 @@
 package atividade1;
 
 import java.util.Scanner;
+import main.Main;
 
 public class Circulo {
     private double raio;
@@ -28,6 +29,7 @@ public class Circulo {
     }
 
     public static void executar() {
+        Main.limparTela();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n=== Cálculo de Círculo ===");
