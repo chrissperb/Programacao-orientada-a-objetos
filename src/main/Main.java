@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Scanner;
 
 public class Main {
@@ -17,6 +19,7 @@ public class Main {
     }
 
     private static int menuPrincipal() {
+        limparTela();
         System.out.println("==============================================");
         System.out.println("Universidade Unyleya");
         System.out.println("Curso Analise e Desenvolvimento de Sistemas");
@@ -34,6 +37,7 @@ public class Main {
     }
 
     private static void menuAtividade(int atividade) {
+        limparTela();
         int opcao;
         do {
             System.out.println("==============================================");
@@ -90,6 +94,7 @@ public class Main {
     }
 
     private static void executarClasse(int atividade, int opcao) {
+        limparTela();
         System.out.println("\nExecutando Atividade " + atividade + " - Opcao " + opcao);
 
         switch (atividade) {
@@ -104,6 +109,10 @@ public class Main {
                     case 3:
                         System.out.println("Executando classe Circulo...");
                         atividade1.Circulo.executar();
+                        break;
+                    case 6:
+                        System.out.println("Executando classe Livro...");
+                        atividade1.Livro.executar();
                         break;
                     case 7:
                         System.out.println("Executando classe Pessoa...");
@@ -127,6 +136,14 @@ public class Main {
         } catch (NumberFormatException e) {
             System.out.println("Opcao invalida! Digite um numero.");
             return -1;
+        }
+    }
+
+    public static void limparTela() {
+        {
+            for (int i = 0; i < 50; i++) {
+                System.out.println();
+            }
         }
     }
 }
