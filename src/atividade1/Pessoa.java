@@ -1,6 +1,7 @@
 package atividade1;
 
 import java.util.Scanner;
+import main.Main;
 
 public class Pessoa {
     private String nome;
@@ -22,6 +23,7 @@ public class Pessoa {
     }
 
     public static void executar() {
+        Main.limparTela();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n=== Cadastro de Pessoa ===");
