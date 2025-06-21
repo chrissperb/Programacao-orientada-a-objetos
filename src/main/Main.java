@@ -102,6 +102,7 @@ public class Main {
                 switch (opcao) {
                     case 1:
                         System.out.println("Executando classe Animal...");
+                        atividade1.Animal.executar();
                         break;
                     case 2:
                         System.out.println("Executando classe Carro...");
