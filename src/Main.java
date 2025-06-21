@@ -108,6 +108,11 @@ public class Main {
                     case 7:
                         System.out.println("Executando classe Pessoa...");
                         atividade1.Pessoa.executar();
+                        break;
+                    case 9:
+                        System.out.println("Executando classe Retangulo...");
+                        atividade1.Retangulo.executar();
+                        break;
                 }
                 break;
         }
