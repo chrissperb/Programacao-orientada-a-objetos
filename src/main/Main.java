@@ -127,6 +127,10 @@ public class Main {
                         System.out.println("Executando classe Retangulo...");
                         atividade1.Retangulo.executar();
                         break;
+                    case 10:
+                        System.out.println("Executando classe Triangulo...");
+                        atividade1.Triangulo.executar();
+                        break;
                 }
                 break;
         }
