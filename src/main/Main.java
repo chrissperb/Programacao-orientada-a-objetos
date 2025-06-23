@@ -111,6 +111,10 @@ public class Main {
                         System.out.println("Executando classe Circulo...");
                         atividade1.Circulo.executar();
                         break;
+                    case 4:
+                        System.out.println("Executando classe ContaBancaria...");
+                        atividade1.ContaBancaria.executar();
+                        break;
                     case 6:
                         System.out.println("Executando classe Livro...");
                         atividade1.Livro.executar();
