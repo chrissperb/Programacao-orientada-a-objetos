@@ -116,6 +116,10 @@ public class Main {
                         System.out.println("Executando classe ContaBancaria...");
                         atividade1.ContaBancaria.executar();
                         break;
+                    case 5:
+                        System.out.println("Executando classe Funcionario...");
+                        atividade1.Funcionario.executar();
+                        break;
                     case 6:
                         System.out.println("Executando classe Livro...");
                         atividade1.Livro.executar();
@@ -138,6 +142,33 @@ public class Main {
                         break;
                 }
                 break;
+            case 2:
+                switch (opcao){
+ /*                   case 1:
+                        System.out.println("Executando classe Autenticador...");
+                        atividade2.Autenticador.executar();
+                        break;*/
+ /*                   case 2:
+                        System.out.println("Executando classe Animais...");
+                        atividade2.Animais.executar();
+                        break;*/
+ /*                   case 3:
+                        System.out.println("Executando classe Calculadora...");
+                        atividade2.Calculadora.executar();
+                        break;*/
+/*                    case 4:
+                        System.out.println("Executando classe ContaBancaria...");
+                        atividade2.ContaBancaria.executar();
+                        break;*/
+/*                    case 5:
+                        System.out.println("Executando classe FormaGeometrica...");
+                        atividade2.FormaGeometrica.executar();
+                        break;*/
+ /*                   case 6:
+                        System.out.println("Executando classe Veiculo...");
+                        atividade2.Veiculo.executar();
+                        break;*/
+                }
         }
 
         System.out.println("\nPressione ENTER para continuar...");
