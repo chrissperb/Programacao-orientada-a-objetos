@@ -164,10 +164,10 @@ public class Main {
                         System.out.println("Executando classe FormaGeometrica...");
                         atividade2.FormaGeometrica.executar();
                         break;*/
- /*                   case 6:
+                    case 6:
                         System.out.println("Executando classe Veiculo...");
-                        atividade2.Veiculo.executar();
-                        break;*/
+                        atividade2.veiculos.Veiculo.executar();
+                        break;
                 }
         }
 
