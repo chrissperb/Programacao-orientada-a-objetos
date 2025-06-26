@@ -156,10 +156,10 @@ public class Main {
                         System.out.println("Executando classe Calculadora...");
                         atividade2.Calculadora.executar();
                         break;*/
-/*                    case 4:
+                    case 4:
                         System.out.println("Executando classe ContaBancaria...");
-                        atividade2.ContaBancaria.executar();
-                        break;*/
+                        atividade2.contabancaria.ContaBancaria.executar();
+                        break;
 /*                    case 5:
                         System.out.println("Executando classe FormaGeometrica...");
                         atividade2.FormaGeometrica.executar();
