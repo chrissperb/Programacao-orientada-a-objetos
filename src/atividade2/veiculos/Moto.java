@@ -17,11 +17,14 @@ public class Moto extends Veiculo {
     }
 
     @Override
-    public void mostrarDados() {
-        super.mostrarDados();
-        System.out.println("Cilindradas: " + cilindradas + "cc");
-        System.out.println("Tipo de Partida: " + tipoPartida);
-        System.out.println("Baú Instalado: " + (bauInstalado ? "Sim" : "Não"));
+    public void imprimirInformacoes() {
+        super.imprimirInformacoes();
+        System.out.printf("""
+            === Especificações da Moto ===
+            Cilindradas: %dcc
+            Tipo de Partida: %s
+            Baú: %s
+            """, cilindradas, tipoPartida, bauInstalado ? "Instalado" : "Não instalado");
     }
 
     public void instalarBau() {
@@ -66,7 +69,7 @@ public class Moto extends Veiculo {
 
             do {
                 Main.limparTela();
-                moto.mostrarDados();
+                moto.imprimirInformacoes();
                 System.out.println("\n=== Operações ===");
                 System.out.println("1 - Instalar Baú");
                 System.out.println("0 - Voltar");

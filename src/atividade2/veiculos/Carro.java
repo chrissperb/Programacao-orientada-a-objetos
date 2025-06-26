@@ -17,11 +17,14 @@ public class Carro extends Veiculo {
     }
 
     @Override
-    public void mostrarDados() {
-        super.mostrarDados();
-        System.out.println("Número de Portas: " + numeroPortas);
-        System.out.println("Tipo de Combustível: " + tipoCombustivel);
-        System.out.println("Ar Condicionado: " + (arCondicionado ? "Sim" : "Não"));
+    public void imprimirInformacoes() {
+        super.imprimirInformacoes();
+        System.out.printf("""
+            === Especificações do Carro ===
+            Número de Portas: %d
+            Combustível: %s
+            Ar Condicionado: %s
+            """, numeroPortas, tipoCombustivel, arCondicionado ? "Instalado" : "Não instalado");
     }
 
     public void ligarArCondicionado() {
@@ -65,7 +68,7 @@ public class Carro extends Veiculo {
 
             do {
                 Main.limparTela();
-                carro.mostrarDados();
+                carro.imprimirInformacoes();
                 System.out.println("\n=== Operações ===");
                 System.out.println("1 - Ligar Ar Condicionado");
                 System.out.println("0 - Voltar");
