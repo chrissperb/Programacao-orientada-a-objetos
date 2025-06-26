@@ -148,10 +148,10 @@ public class Main {
                         System.out.println("Executando classe Autenticador...");
                         atividade2.Autenticador.executar();
                         break;*/
- /*                   case 2:
+                    case 2:
                         System.out.println("Executando classe Animais...");
-                        atividade2.Animais.executar();
-                        break;*/
+                        atividade2.animais.Animais.executar();
+                        break;
  /*                   case 3:
                         System.out.println("Executando classe Calculadora...");
                         atividade2.Calculadora.executar();
