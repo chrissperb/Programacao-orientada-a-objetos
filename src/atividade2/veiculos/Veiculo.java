@@ -17,12 +17,15 @@ public class Veiculo {
         this.preco = preco;
     }
 
-    public void mostrarDados() {
-        System.out.println("\n=== Dados do Veículo ===");
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Ano: " + ano);
-        System.out.println("Cor: " + cor);
-        System.out.printf("Preço: R$ %.2f%n", preco);
+    public void imprimirInformacoes() {
+        System.out.printf("""
+            
+            === Informações do Veículo ===
+            Modelo: %s
+            Ano: %d
+            Cor: %s
+            Valor: R$ %.2f
+            """, modelo, ano, cor, preco);
     }
 
     public static void executar() {
