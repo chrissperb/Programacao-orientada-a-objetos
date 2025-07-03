@@ -169,6 +169,46 @@ public class Main {
                         atividade2.veiculos.Veiculo.executar();
                         break;
                 }
+            case 3:
+                switch (opcao) {
+                    case 1:
+                        System.out.println("Executando classe Calculadora...");
+                        atividade3.calculadora.Calculadora.executar();
+                        break;
+//                    case 2:
+//                        System.out.println("Executando classe ContaBancaria...");
+//                        atividade3.contabancaria.ContaBancaria.executar();
+//                        break;
+//                    case 3:
+//                        System.out.println("Executando classe ConversorStringParaInteger...");
+//                        atividade3.conversores.ConversorStringParaInteger.executar();
+//                        break;
+//                    case 4:
+//                        System.out.println("Executando classe ConversorTemperatura...");
+//                        atividade3.conversores.ConversorTemperatura.executar();
+//                        break;
+//                    case 5:
+//                        System.out.println("Executando classe DivisaoInteira...");
+//                        atividade3.divisoes.DivisaoInteira.executar();
+//                        break;
+//                    case 6:
+//                        System.out.println("Executando classe DivisaoPorZero...");
+//                        atividade3.divisoes.DivisaoPorZero.executar();
+//                        break;
+//                    case 7:
+//                        System.out.println("Executando classe LeitorDeArquivo...");
+//                        atividade3.leitor.LeitorDeArquivo.executar();
+//                        break;
+//                    case 8:
+//                        System.out.println("Executando classe SaldoInsuficiente...");
+//                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
+//                        break;
+//                    case 9:
+//                        System.out.println("Executando classe ValidadorSenha...");
+//                        atividade3.validadores.ValidadorSenha.executar();
+//                        break;
+                }
+                break;
         }
 
         System.out.println("\nPressione ENTER para continuar...");
