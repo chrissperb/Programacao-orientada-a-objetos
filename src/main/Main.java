@@ -1,5 +1,7 @@
 package main;
 
+import atividade3.validadoridade.ValidadorIdade;
+
 import java.util.Scanner;
 
 public class Main {
@@ -76,7 +78,8 @@ public class Main {
                     System.out.println("6 - DivisaoPorZero");
                     System.out.println("7 - LeitorDeArquivo");
                     System.out.println("8 - SaldoInsuficiente");
-                    System.out.println("9 - ValidadorSenha");
+                    System.out.println("9 - ValidadorIdade");
+                    System.out.println("10 - ValidadorSenha");
                     break;
                 case 4:
                     System.out.println("1 - Projeto Final");
@@ -203,9 +206,13 @@ public class Main {
 //                        System.out.println("Executando classe SaldoInsuficiente...");
 //                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
 //                        break;
-//                    case 9:
+                    case 9:
+                        System.out.println("Executando classe ValidadorIdade...");
+                        ValidadorIdade.executar();
+                        break;
+//                        case 10:
 //                        System.out.println("Executando classe ValidadorSenha...");
-//                        atividade3.validadores.ValidadorSenha.executar();
+//                        atividade3.ValidadorSenha.executar();
 //                        break;
                 }
                 break;
