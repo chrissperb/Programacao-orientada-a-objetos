@@ -144,10 +144,10 @@ public class Main {
                 break;
             case 2:
                 switch (opcao) {
- /*                   case 1:
+                    case 1:
                         System.out.println("Executando classe Autenticador...");
-                        atividade2.Autenticador.executar();
-                        break;*/
+                        atividade2.autenticacao.SistemaAutenticacao.executar();
+                        break;
                     case 2:
                         System.out.println("Executando classe Animais...");
                         atividade2.animais.Animais.executar();
