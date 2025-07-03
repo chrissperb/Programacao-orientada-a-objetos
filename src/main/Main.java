@@ -183,10 +183,10 @@ public class Main {
 //                        System.out.println("Executando classe ConversorStringParaInteger...");
 //                        atividade3.conversores.ConversorStringParaInteger.executar();
 //                        break;
-//                    case 4:
-//                        System.out.println("Executando classe ConversorTemperatura...");
-//                        atividade3.conversores.ConversorTemperatura.executar();
-//                        break;
+                    case 4:
+                        System.out.println("Executando classe ConversorTemperatura...");
+                        atividade3.ConversorTemperatura.executar();
+                        break;
 //                    case 5:
 //                        System.out.println("Executando classe DivisaoInteira...");
 //                        atividade3.divisoes.DivisaoInteira.executar();
