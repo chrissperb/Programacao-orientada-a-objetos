@@ -1,6 +1,7 @@
 package atividade2.contabancaria;
 
 import main.Main;
+
 import java.util.Scanner;
 
 public abstract class ContaBancaria {
@@ -36,12 +37,14 @@ public abstract class ContaBancaria {
 
     public void mostrarDados() {
         System.out.printf("""
-            
-            === Dados da Conta %s ===
-            Número: %s
-            Saldo: R$ %.2f
-            """, getTipoConta(), numeroConta, saldo);
+                
+                === Dados da Conta %s ===
+                Número: %s
+                Saldo: R$ %.2f
+                """, getTipoConta(), numeroConta, saldo);
     }
+
+    public abstract void aplicarJuros();
 
     public static void executar() {
         int opcao;
@@ -53,6 +56,7 @@ public abstract class ContaBancaria {
             System.out.println("3 - Depositar");
             System.out.println("4 - Sacar");
             System.out.println("5 - Consultar Saldo");
+            System.out.println("6 - Aplicar Juros");
             System.out.println("0 - Voltar");
             System.out.println("\nEscolha uma opção:");
 
@@ -70,6 +74,7 @@ public abstract class ContaBancaria {
                 case 3 -> realizarDeposito();
                 case 4 -> realizarSaque();
                 case 5 -> consultarSaldo();
+                case 6 -> aplicarJurosNaConta();
                 case 0 -> System.out.println("\nVoltando ao menu principal...");
                 default -> System.out.println("\nOpção inválida!");
             }
@@ -81,6 +86,12 @@ public abstract class ContaBancaria {
         } catch (IllegalArgumentException e) {
             System.out.println("\nErro: " + e.getMessage());
             scanner.nextLine();
+        }
+    }
+
+    private static void aplicarJurosNaConta() {
+        if (verificarContaExiste()) {
+            ultimaContaCriada.aplicarJuros();
         }
     }
 
