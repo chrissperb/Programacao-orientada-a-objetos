@@ -198,10 +198,10 @@ public class Main {
                         System.out.println("Executando classe DivisaoPorZero...");
                         atividade3.DivisaoPorZero.executar();
                         break;
-//                    case 7:
-//                        System.out.println("Executando classe LeitorDeArquivo...");
-//                        atividade3.leitor.LeitorDeArquivo.executar();
-//                        break;
+                    case 7:
+                        System.out.println("Executando classe LeitorDeArquivo...");
+                        atividade3.LeitorDeArquivo.executar();
+                        break;
 //                    case 8:
 //                        System.out.println("Executando classe SaldoInsuficiente...");
 //                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
