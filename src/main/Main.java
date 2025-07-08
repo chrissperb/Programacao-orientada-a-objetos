@@ -191,10 +191,10 @@ public class Main {
                         System.out.println("Executando classe ConversorTemperatura...");
                         atividade3.ConversorTemperatura.executar();
                         break;
-//                    case 5:
-//                        System.out.println("Executando classe DivisaoInteira...");
-//                        atividade3.divisoes.DivisaoInteira.executar();
-//                        break;
+                    case 5:
+                        System.out.println("Executando classe DivisaoInteira...");
+                        atividade3.divisoes.DivisaoInteira.executar();
+                        break;
                     case 6:
                         System.out.println("Executando classe DivisaoPorZero...");
                         atividade3.DivisaoPorZero.executar();
