@@ -73,7 +73,7 @@ public class Main {
                 case 3:
                     System.out.println("1 - Calculadora");
                     System.out.println("2 - ContaBancaria");
-                    System.out.println("3 - ConversorStrinngParaInteger");
+                    System.out.println("3 - ConversorStringParaInteger");
                     System.out.println("4 - ConversorTemperatura");
                     System.out.println("5 - DivisaoInteira");
                     System.out.println("6 - DivisaoPorZero");
@@ -183,10 +183,10 @@ public class Main {
                         System.out.println("Executando classe ContaBancaria...");
                         atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
                         break;
-//                    case 3:
-//                        System.out.println("Executando classe ConversorStringParaInteger...");
-//                        atividade3.conversores.ConversorStringParaInteger.executar();
-//                        break;
+                    case 3:
+                        System.out.println("Executando classe ConversorStringParaInteger...");
+                        atividade3.ConversorStringParaInteger.executar();
+                        break;
                     case 4:
                         System.out.println("Executando classe ConversorTemperatura...");
                         atividade3.ConversorTemperatura.executar();
