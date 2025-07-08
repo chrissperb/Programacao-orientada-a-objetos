@@ -1,6 +1,7 @@
 package main;
 
 import atividade3.validadoridade.ValidadorIdade;
+import atividade3.validadorsenha.ValidadorSenha;
 
 import java.util.Scanner;
 
@@ -210,10 +211,10 @@ public class Main {
                         System.out.println("Executando classe ValidadorIdade...");
                         ValidadorIdade.executar();
                         break;
-//                        case 10:
-//                        System.out.println("Executando classe ValidadorSenha...");
-//                        atividade3.ValidadorSenha.executar();
-//                        break;
+                    case 10:
+                        System.out.println("Executando classe ValidadorSenha...");
+                        ValidadorSenha.executar();
+                        break;
                 }
                 break;
         }
