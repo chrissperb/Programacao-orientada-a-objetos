@@ -178,10 +178,10 @@ public class Main {
                         System.out.println("Executando classe Calculadora...");
                         atividade3.calculadora.Calculadora.executar();
                         break;
-//                    case 2:
-//                        System.out.println("Executando classe ContaBancaria...");
-//                        atividade3.contabancaria.ContaBancaria.executar();
-//                        break;
+                    case 2:
+                        System.out.println("Executando classe ContaBancaria...");
+                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
+                        break;
 //                    case 3:
 //                        System.out.println("Executando classe ConversorStringParaInteger...");
 //                        atividade3.conversores.ConversorStringParaInteger.executar();
@@ -202,10 +202,10 @@ public class Main {
                         System.out.println("Executando classe LeitorDeArquivo...");
                         atividade3.LeitorDeArquivo.executar();
                         break;
-//                    case 8:
-//                        System.out.println("Executando classe SaldoInsuficiente...");
-//                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
-//                        break;
+                    case 8:
+                        System.out.println("Executando classe SaldoInsuficiente...");
+                        atividade3.saldoinsuficiente.SaldoInsuficiente.executar();
+                        break;
                     case 9:
                         System.out.println("Executando classe ValidadorIdade...");
                         ValidadorIdade.executar();
