@@ -38,6 +38,7 @@ public class Veiculo {
             System.out.println("\nEscolha o tipo de veículo:");
             System.out.println("1 - Carro");
             System.out.println("2 - Moto");
+            System.out.println("3 - Caminhão");
             System.out.println("0 - Voltar");
             System.out.println("\nDigite a opção desejada:");
 
@@ -54,6 +55,11 @@ public class Veiculo {
                         Main.limparTela();
                         System.out.println("=== Cadastro de Moto ===");
                         Moto.executar();
+                        break;
+                    case 3:
+                        Main.limparTela();
+                        System.out.println("=== Cadastro de Caminhão ===");
+                        Caminhao.executar();
                         break;
                     case 0:
                         System.out.println("\nVoltando ao menu principal...");
