@@ -1,13 +1,13 @@
 package atividade2.veiculos;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class Cliente {
     private static int proximoId = 1;
     private final int id;
-    private  String nome;
+    private String nome;
     private final String cpf;
     private String telefone;
     private String email;
@@ -39,20 +39,20 @@ public class Cliente {
         int idade = Period.between(dataNascimento, LocalDate.now()).getYears();
 
         System.out.printf("""
-            
-            === Informações do Cliente ===
-            ID: %d
-            Nome: %s
-            CPF: %s
-            Telefone: %s
-            Email: %s
-            Endereço: %s
-            Data de Nascimento: %s (Idade: %d anos)
-            Profissão: %s
-            Renda Mensal: R$ %.2f
-            Data de Cadastro: %s
-            Status: %s
-            """, id, nome, cpf, telefone, email, endereco,
+                        
+                        === Informações do Cliente ===
+                        ID: %d
+                        Nome: %s
+                        CPF: %s
+                        Telefone: %s
+                        Email: %s
+                        Endereço: %s
+                        Data de Nascimento: %s (Idade: %d anos)
+                        Profissão: %s
+                        Renda Mensal: R$ %.2f
+                        Data de Cadastro: %s
+                        Status: %s
+                        """, id, nome, cpf, telefone, email, endereco,
                 dataNascimento.format(formatter), idade, profissao,
                 rendaMensal, dataCadastro.format(formatter),
                 ativo ? "Ativo" : "Inativo");
@@ -73,11 +73,11 @@ public class Cliente {
     public void calcularCapacidadeFinanciamento() {
         double capacidadeMaxima = (rendaMensal * 0.30) * 60; // 30% da renda em 60 meses
         System.out.printf("""
-            === Análise de Crédito ===
-            Renda Mensal: R$ %.2f
-            Capacidade de Financiamento (60x): R$ %.2f
-            Valor máximo da parcela: R$ %.2f
-            """, rendaMensal, capacidadeMaxima, rendaMensal * 0.30);
+                === Análise de Crédito ===
+                Renda Mensal: R$ %.2f
+                Capacidade de Financiamento (60x): R$ %.2f
+                Valor máximo da parcela: R$ %.2f
+                """, rendaMensal, capacidadeMaxima, rendaMensal * 0.30);
     }
 
     public void desativar() {
@@ -91,17 +91,48 @@ public class Cliente {
     }
 
     // Getters
-    public int getId() { return id; }
-    public String getNome() { return nome; }
-    public String getCpf() { return cpf; }
-    public double getRendaMensal() { return rendaMensal; }
-    public boolean isAtivo() { return ativo; }
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public double getRendaMensal() {
+        return rendaMensal;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
 
     // Setters
-    public void setNome(String nome) { this.nome = nome; }
-    public void setTelefone(String telefone) { this.telefone = telefone; }
-    public void setEmail(String email) { this.email = email; }
-    public void setEndereco(String endereco) { this.endereco = endereco; }
-    public void setProfissao(String profissao) { this.profissao = profissao; }
-    public void setRendaMensal(double rendaMensal) { this.rendaMensal = rendaMensal; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public void setRendaMensal(double rendaMensal) {
+        this.rendaMensal = rendaMensal;
+    }
 }

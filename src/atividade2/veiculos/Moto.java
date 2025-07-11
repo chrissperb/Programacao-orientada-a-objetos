@@ -1,11 +1,12 @@
 package atividade2.veiculos;
 
 import main.Main;
+
 import java.util.Scanner;
 
 public class Moto extends Veiculo {
-    private int cilindradas;
-    private String tipoPartida;
+    private final int cilindradas;
+    private final String tipoPartida;
     private boolean bauInstalado;
 
     public Moto(String modelo, int ano, String cor, double preco,
@@ -20,11 +21,11 @@ public class Moto extends Veiculo {
     public void imprimirInformacoes() {
         super.imprimirInformacoes();
         System.out.printf("""
-            === Especificações da Moto ===
-            Cilindradas: %dcc
-            Tipo de Partida: %s
-            Baú: %s
-            """, cilindradas, tipoPartida, bauInstalado ? "Instalado" : "Não instalado");
+                === Especificações da Moto ===
+                Cilindradas: %dcc
+                Tipo de Partida: %s
+                Baú: %s
+                """, cilindradas, tipoPartida, bauInstalado ? "Instalado" : "Não instalado");
     }
 
     public void instalarBau() {
