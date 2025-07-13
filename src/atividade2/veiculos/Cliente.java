@@ -99,9 +99,12 @@ public class Cliente {
         return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 
-    // Getters
     public int getId() {
         return id;
+    }
+
+    public String getTelefone() {
+        return telefone;
     }
 
     public String getNome() {

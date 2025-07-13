@@ -24,10 +24,6 @@ public class Carro extends Veiculo {
                 """, portas, combustivel, arCondicionado ? "Sim" : "Não");
     }
 
-    public int getPortas() {
-        return portas;
-    }
-
     @Override
     public boolean sugeridoPara(Cliente cliente) {
         return cliente.getIdade() >= 25 && cliente.getAltura() >= 1.6;

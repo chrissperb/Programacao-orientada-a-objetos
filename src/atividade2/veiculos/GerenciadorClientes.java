@@ -237,8 +237,6 @@ public class GerenciadorClientes {
         }
     }
 
-    // NOVOS MÉTODOS PARA SUGESTÃO DE VEÍCULOS
-
     public static Cliente buscarClientePorIdParaSugestao() {
         System.out.println("\nDigite o ID do cliente:");
         try {
@@ -294,12 +292,11 @@ public class GerenciadorClientes {
         }
 
         if (clientesEncontrados.size() == 1) {
-            Cliente cliente = clientesEncontrados.get(0);
+            Cliente cliente = clientesEncontrados.getFirst();
             System.out.println("✅ Cliente encontrado: " + cliente.getNome());
             return cliente;
         }
 
-        // Múltiplos clientes encontrados - mostrar lista para seleção
         System.out.println("\n📋 Múltiplos clientes encontrados:");
         System.out.println("=".repeat(80));
         for (int i = 0; i < clientesEncontrados.size(); i++) {
@@ -331,8 +328,6 @@ public class GerenciadorClientes {
             return null;
         }
     }
-
-    // MÉTODOS EXISTENTES CONTINUAM IGUAIS
 
     private static void visualizarClientesAtivos() {
         Main.limparTela();

@@ -32,4 +32,17 @@ public class Veiculo {
     public boolean sugeridoPara(Cliente cliente) {
         return false;
     }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
 }

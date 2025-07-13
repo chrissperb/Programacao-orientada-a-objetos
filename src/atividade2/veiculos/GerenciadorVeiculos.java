@@ -31,6 +31,7 @@ public class GerenciadorVeiculos {
             System.out.println("6 - Relatório de Veículos");
             System.out.println("7 - Sistema de Clientes");
             System.out.println("8 - Sugerir Veículo por Biotipo do Cliente");
+            System.out.println("9 - Relatorios de Vendas");
             System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("\nDigite a opção desejada:");
 
@@ -46,6 +47,7 @@ public class GerenciadorVeiculos {
                     case 6 -> relatorioVeiculos();
                     case 7 -> GerenciadorClientes.executar();
                     case 8 -> menuSugestaoBiotipo();
+                    case 9 -> GerenciadorVendas.executar();
                     case 0 -> System.out.println("\nVoltando ao menu principal...");
                     default -> System.out.println("\nOpção inválida!");
                 }
@@ -78,7 +80,7 @@ public class GerenciadorVeiculos {
         int opcao;
         try {
             opcao = Integer.parseInt(scanner.nextLine());
-            Cliente clienteEncontrado = null;
+            Cliente clienteEncontrado;
 
             switch (opcao) {
                 case 1:
@@ -317,7 +319,9 @@ public class GerenciadorVeiculos {
                 scanner.nextLine();
             }
         } catch (NumberFormatException e) {
-            // Ignora entrada inválida
+            System.out.println("❌ Entrada inválida! Digite um número.");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("❌ Opção fora do intervalo! Tente novamente.");
         }
     }
 
