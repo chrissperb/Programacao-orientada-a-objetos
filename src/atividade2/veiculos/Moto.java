@@ -99,4 +99,9 @@ public class Moto extends Veiculo {
             System.out.println("Entrada numérica inválida!");
         }
     }
+
+    @Override
+    public boolean sugeridoPara(Cliente cliente) {
+        return cliente.getIdade() >= 18 && cliente.getPeso() <= 90;
+    }
 }

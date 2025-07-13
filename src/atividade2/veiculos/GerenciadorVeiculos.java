@@ -7,12 +7,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
+import static atividade2.veiculos.GerenciadorClientes.*;
+
 public class GerenciadorVeiculos {
     private final static List<Veiculo> veiculos = new ArrayList<>();
     private final static Scanner scanner = new Scanner(System.in);
 
     public static void executar() {
-        // Adicionar alguns veículos de exemplo se a lista estiver vazia
         if (veiculos.isEmpty()) {
             adicionarVeiculosExemplo();
         }
@@ -28,7 +29,8 @@ public class GerenciadorVeiculos {
             System.out.println("4 - Filtrar por Tipo de Veículo");
             System.out.println("5 - Filtrar por Faixa de Preço");
             System.out.println("6 - Relatório de Veículos");
-            System.out.println("7 - Ir para Sistema de Clientes");
+            System.out.println("7 - Sistema de Clientes");
+            System.out.println("8 - Sugerir Veículo por Biotipo do Cliente");
             System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("\nDigite a opção desejada:");
 
@@ -36,38 +38,16 @@ public class GerenciadorVeiculos {
                 opcao = Integer.parseInt(scanner.nextLine());
 
                 switch (opcao) {
-                    case 1:
-                        menuCadastroVeiculo();
-                        break;
-                    case 2:
-                        visualizarTodosVeiculos();
-                        break;
-                    case 3:
-                        buscarVeiculoPorModelo();
-                        break;
-                    case 4:
-                        filtrarPorTipoVeiculo();
-                        break;
-                    case 5:
-                        filtrarPorFaixaPreco();
-                        break;
-                    case 6:
-                        relatorioVeiculos();
-                        break;
-                    case 7:
-                        Main.limparTela();
-                        System.out.println("=== Sistema de Clientes da Concessionária ===");
-                        System.out.println("Gerenciamento completo de clientes");
-                        System.out.println("Pressione ENTER para acessar...");
-                        scanner.nextLine();
-                        GerenciadorClientes.executar();
-                        return;
-                    case 0:
-                        System.out.println("\nVoltando ao menu principal...");
-                        break;
-                    default:
-                        System.out.println("\nOpção inválida!");
-                        break;
+                    case 1 -> menuCadastroVeiculo();
+                    case 2 -> visualizarTodosVeiculos();
+                    case 3 -> buscarVeiculoPorModelo();
+                    case 4 -> filtrarPorTipoVeiculo();
+                    case 5 -> filtrarPorFaixaPreco();
+                    case 6 -> relatorioVeiculos();
+                    case 7 -> GerenciadorClientes.executar();
+                    case 8 -> menuSugestaoBiotipo();
+                    case 0 -> System.out.println("\nVoltando ao menu principal...");
+                    default -> System.out.println("\nOpção inválida!");
                 }
 
                 if (opcao != 0) {
@@ -83,6 +63,81 @@ public class GerenciadorVeiculos {
             }
 
         } while (opcao != 0);
+    }
+
+    public static void menuSugestaoBiotipo() {
+        Main.limparTela();
+        System.out.println("=== Sugestão de Veículos por Biotipo ===");
+        System.out.println("\nFaça a busca do cliente:");
+        System.out.println("1 - Por nome.");
+        System.out.println("2 - Por CPF.");
+        System.out.println("3 - Por ID.");
+        System.out.println("0 - Voltar");
+        System.out.println("\nDigite a opção desejada:");
+
+        int opcao;
+        try {
+            opcao = Integer.parseInt(scanner.nextLine());
+            Cliente clienteEncontrado = null;
+
+            switch (opcao) {
+                case 1:
+                    clienteEncontrado = buscarClientePorNomeParaSugestao();
+                    break;
+                case 2:
+                    clienteEncontrado = buscarClientePorCpfParaSugestao();
+                    break;
+                case 3:
+                    clienteEncontrado = buscarClientePorIdParaSugestao();
+                    break;
+                case 0:
+                    System.out.println("\nVoltando ao menu principal...");
+                    return;
+                default:
+                    System.out.println("\nOpção inválida!");
+                    return;
+            }
+
+            if (clienteEncontrado != null) {
+                sugerirVeiculosParaCliente(clienteEncontrado);
+            } else {
+                System.out.println("\nCliente não encontrado ou operação cancelada.");
+                System.out.println("\nPressione ENTER para continuar...");
+                scanner.nextLine();
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida! Digite opção válida.");
+            System.out.println("\nPressione ENTER para continuar...");
+            scanner.nextLine();
+        }
+    }
+
+    public static void sugerirVeiculosParaCliente(Cliente cliente) {
+        Main.limparTela();
+        System.out.println("=== Sugestões Personalizadas de Veículos ===");
+        System.out.println("Cliente: " + cliente.getNome());
+        System.out.printf("Altura: %d cm | Peso: %d kg | Estilo: %s\n\n",
+                cliente.getAltura(), cliente.getPeso(), cliente.getEstiloDeVida());
+
+        List<Veiculo> sugestoes = veiculos.stream()
+                .filter(v -> v.sugeridoPara(cliente))
+                .toList();
+
+        if (sugestoes.isEmpty()) {
+            System.out.println("❌ Nenhum veículo sugerido com base no biotipo.");
+        } else {
+            System.out.println("🚘 Veículos sugeridos:");
+            System.out.println("=".repeat(100));
+            for (Veiculo v : sugestoes) {
+                System.out.printf("[%s] %s %d - %s - R$ %.2f\n",
+                        v.getClass().getSimpleName(), v.modelo, v.ano, v.cor, v.preco);
+            }
+            System.out.println("=".repeat(100));
+        }
+
+        System.out.println("\nPressione ENTER para continuar...");
+        scanner.nextLine();
     }
 
     private static void menuCadastroVeiculo() {

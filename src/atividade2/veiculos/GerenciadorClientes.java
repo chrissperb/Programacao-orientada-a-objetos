@@ -10,12 +10,13 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
+import static atividade2.veiculos.GerenciadorVeiculos.menuSugestaoBiotipo;
+
 public class GerenciadorClientes {
     private final static List<Cliente> clientes = new ArrayList<>();
     private final static Scanner scanner = new Scanner(System.in);
 
     public static void executar() {
-        // Adicionar alguns clientes de exemplo se a lista estiver vazia
         if (clientes.isEmpty()) {
             adicionarClientesExemplo();
         }
@@ -36,6 +37,7 @@ public class GerenciadorClientes {
             System.out.println("9 - Ativar/Desativar Cliente");
             System.out.println("10 - Análise de Crédito");
             System.out.println("11 - Relatório de Clientes");
+            System.out.println("12 - Sugerir Carro por biotipo do Cliente");
             System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("\nDigite a opção desejada:");
 
@@ -75,6 +77,9 @@ public class GerenciadorClientes {
                         break;
                     case 11:
                         relatorioClientes();
+                        break;
+                    case 12:
+                        menuSugestaoBiotipo();
                         break;
                     case 0:
                         System.out.println("\nVoltando ao menu principal...");
@@ -116,6 +121,12 @@ public class GerenciadorClientes {
             System.out.println("Digite o email:");
             String email = scanner.nextLine().trim();
 
+            System.out.println("Digite a altura (em cm):");
+            int altura = scanner.nextInt();
+
+            System.out.println("Digite o peso (em kg e sem virgulas):");
+            int peso = scanner.nextInt();
+
             System.out.println("Digite o endereço completo:");
             String endereco = scanner.nextLine().trim();
 
@@ -130,7 +141,7 @@ public class GerenciadorClientes {
             double rendaMensal = Double.parseDouble(scanner.nextLine());
 
             Cliente novoCliente = new Cliente(nome, cpf, telefone, email, endereco,
-                    dataNascimento, profissao, rendaMensal);
+                    dataNascimento, profissao, rendaMensal, altura, peso, null);
             clientes.add(novoCliente);
 
             System.out.println("\n✅ Cliente cadastrado com sucesso!");
@@ -161,7 +172,7 @@ public class GerenciadorClientes {
         System.out.printf("Total de clientes: %d\n", clientes.size());
     }
 
-    private static void buscarClientePorId() {
+    public static void buscarClientePorId() {
         Main.limparTela();
         System.out.println("=== Buscar Cliente por ID ===");
 
@@ -184,7 +195,7 @@ public class GerenciadorClientes {
         }
     }
 
-    private static void buscarClientePorCpf() {
+    public static void buscarClientePorCpf() {
         Main.limparTela();
         System.out.println("=== Buscar Cliente por CPF ===");
 
@@ -203,7 +214,7 @@ public class GerenciadorClientes {
         }
     }
 
-    private static void buscarClientePorNome() {
+    public static void buscarClientePorNome() {
         Main.limparTela();
         System.out.println("=== Buscar Cliente por Nome ===");
 
@@ -225,6 +236,103 @@ public class GerenciadorClientes {
             System.out.println("❌ Nenhum cliente encontrado!");
         }
     }
+
+    // NOVOS MÉTODOS PARA SUGESTÃO DE VEÍCULOS
+
+    public static Cliente buscarClientePorIdParaSugestao() {
+        System.out.println("\nDigite o ID do cliente:");
+        try {
+            int id = Integer.parseInt(scanner.nextLine());
+
+            Cliente cliente = clientes.stream()
+                    .filter(c -> c.getId() == id)
+                    .findFirst()
+                    .orElse(null);
+
+            if (cliente != null) {
+                System.out.println("✅ Cliente encontrado: " + cliente.getNome());
+                return cliente;
+            } else {
+                System.out.println("❌ Cliente não encontrado!");
+                return null;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("❌ ID inválido!");
+            return null;
+        }
+    }
+
+    public static Cliente buscarClientePorCpfParaSugestao() {
+        System.out.println("\nDigite o CPF do cliente:");
+        String cpf = scanner.nextLine().trim();
+
+        Cliente cliente = clientes.stream()
+                .filter(c -> c.getCpf().equals(cpf))
+                .findFirst()
+                .orElse(null);
+
+        if (cliente != null) {
+            System.out.println("✅ Cliente encontrado: " + cliente.getNome());
+            return cliente;
+        } else {
+            System.out.println("❌ Cliente não encontrado!");
+            return null;
+        }
+    }
+
+    public static Cliente buscarClientePorNomeParaSugestao() {
+        System.out.println("\nDigite o nome (ou parte do nome) do cliente:");
+        String nome = scanner.nextLine().trim().toLowerCase();
+
+        List<Cliente> clientesEncontrados = clientes.stream()
+                .filter(c -> c.getNome().toLowerCase().contains(nome))
+                .toList();
+
+        if (clientesEncontrados.isEmpty()) {
+            System.out.println("❌ Nenhum cliente encontrado!");
+            return null;
+        }
+
+        if (clientesEncontrados.size() == 1) {
+            Cliente cliente = clientesEncontrados.get(0);
+            System.out.println("✅ Cliente encontrado: " + cliente.getNome());
+            return cliente;
+        }
+
+        // Múltiplos clientes encontrados - mostrar lista para seleção
+        System.out.println("\n📋 Múltiplos clientes encontrados:");
+        System.out.println("=".repeat(80));
+        for (int i = 0; i < clientesEncontrados.size(); i++) {
+            Cliente cliente = clientesEncontrados.get(i);
+            System.out.printf("%d. ID: %d - %s - CPF: %s\n",
+                    i + 1, cliente.getId(), cliente.getNome(), cliente.getCpf());
+        }
+        System.out.println("=".repeat(80));
+
+        System.out.println("\nDigite o número do cliente desejado (ou 0 para cancelar):");
+        try {
+            int opcao = Integer.parseInt(scanner.nextLine());
+
+            if (opcao == 0) {
+                System.out.println("Operação cancelada.");
+                return null;
+            }
+
+            if (opcao > 0 && opcao <= clientesEncontrados.size()) {
+                Cliente clienteSelecionado = clientesEncontrados.get(opcao - 1);
+                System.out.println("✅ Cliente selecionado: " + clienteSelecionado.getNome());
+                return clienteSelecionado;
+            } else {
+                System.out.println("❌ Opção inválida!");
+                return null;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("❌ Entrada inválida!");
+            return null;
+        }
+    }
+
+    // MÉTODOS EXISTENTES CONTINUAM IGUAIS
 
     private static void visualizarClientesAtivos() {
         Main.limparTela();
@@ -295,6 +403,9 @@ public class GerenciadorClientes {
             System.out.println("4 - Endereço");
             System.out.println("5 - Profissão");
             System.out.println("6 - Renda Mensal");
+            System.out.println("7 - Peso");
+            System.out.println("8 - Altura");
+            System.out.println("9 - Estilo de Vida");
             System.out.println("0 - Cancelar");
             System.out.println("\nO que deseja editar?");
 
@@ -324,6 +435,18 @@ public class GerenciadorClientes {
                 case 6:
                     System.out.println("Nova renda mensal:");
                     cliente.setRendaMensal(Double.parseDouble(scanner.nextLine()));
+                    break;
+                case 7:
+                    System.out.println("Novo peso (em kg e sem virgula):");
+                    cliente.setPeso(scanner.nextInt());
+                    break;
+                case 8:
+                    System.out.println("Nova altura:");
+                    cliente.setAltura(scanner.nextInt());
+                    break;
+                case 9:
+                    System.out.println("Novo estilo de vida:");
+                    cliente.setEstiloDeVida(scanner.nextLine().trim());
                     break;
                 case 0:
                     System.out.println("Operação cancelada.");
@@ -454,15 +577,14 @@ public class GerenciadorClientes {
     private static void adicionarClientesExemplo() {
         clientes.add(new Cliente("João Silva Santos", "12345678901", "(11) 99999-1234",
                 "joao.silva@email.com", "Rua das Flores, 123 - São Paulo/SP",
-                LocalDate.of(1985, 3, 15), "Engenheiro", 8500.00));
+                LocalDate.of(1985, 3, 15), "Engenheiro", 8500.00, 180, 75, "Sedentario"));
 
         clientes.add(new Cliente("Maria Oliveira Costa", "98765432100", "(11) 88888-5678",
                 "maria.costa@email.com", "Av. Paulista, 456 - São Paulo/SP",
-                LocalDate.of(1990, 7, 22), "Médica", 12000.00));
+                LocalDate.of(1990, 7, 22), "Médica", 12000.00, 165, 60, "Atleta"));
 
         clientes.add(new Cliente("Carlos Pereira Lima", "11122233344", "(11) 77777-9999",
                 "carlos.lima@email.com", "Rua Augusta, 789 - São Paulo/SP",
-                LocalDate.of(1978, 12, 8), "Advogado", 9800.00));
+                LocalDate.of(1978, 12, 8), "Advogado", 9800.00, 175, 80, "Atleta"));
     }
-
 }

@@ -28,4 +28,8 @@ public class Veiculo {
     public static void executar() {
         GerenciadorVeiculos.executar();
     }
+
+    public boolean sugeridoPara(Cliente cliente) {
+        return false;
+    }
 }

@@ -17,10 +17,14 @@ public class Cliente {
     private double rendaMensal;
     private final LocalDate dataCadastro;
     private boolean ativo;
+    private String estiloDeVida;
+    private int peso;
+    private int altura;
+
 
     public Cliente(String nome, String cpf, String telefone, String email,
                    String endereco, LocalDate dataNascimento, String profissao,
-                   double rendaMensal) {
+                   Double rendaMensal, Integer altura, Integer peso, String estiloDeVida) {
         this.id = proximoId++;
         this.nome = nome;
         this.cpf = cpf;
@@ -32,6 +36,9 @@ public class Cliente {
         this.rendaMensal = rendaMensal;
         this.dataCadastro = LocalDate.now();
         this.ativo = true;
+        this.altura = altura;
+        this.peso = peso;
+        this.estiloDeVida = estiloDeVida;
     }
 
     public void imprimirInformacoes() {
@@ -64,14 +71,12 @@ public class Cliente {
     }
 
     public boolean podeFinanciar(double valorVeiculo) {
-        // Regra: renda mensal deve ser pelo menos 30% do valor da parcela
-        // Considerando financiamento em 60 meses
         double parcela = valorVeiculo / 60;
-        return rendaMensal >= (parcela * 3.33); // 30% da renda
+        return rendaMensal >= (parcela * 3.33);
     }
 
     public void calcularCapacidadeFinanciamento() {
-        double capacidadeMaxima = (rendaMensal * 0.30) * 60; // 30% da renda em 60 meses
+        double capacidadeMaxima = (rendaMensal * 0.30) * 60; //
         System.out.printf("""
                 === Análise de Crédito ===
                 Renda Mensal: R$ %.2f
@@ -88,6 +93,10 @@ public class Cliente {
     public void ativar() {
         this.ativo = true;
         System.out.println("Cliente ativado com sucesso!");
+    }
+
+    public int getIdade() {
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 
     // Getters
@@ -109,6 +118,18 @@ public class Cliente {
 
     public boolean isAtivo() {
         return ativo;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public String getEstiloDeVida() {
+        return estiloDeVida;
+    }
+
+    public int getAltura() {
+        return altura;
     }
 
     // Setters
@@ -134,5 +155,17 @@ public class Cliente {
 
     public void setRendaMensal(double rendaMensal) {
         this.rendaMensal = rendaMensal;
+    }
+
+    public void setAltura(int altura) {
+        this.altura = altura;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+
+    public void setEstiloDeVida(String estiloDeVida) {
+        this.estiloDeVida = estiloDeVida;
     }
 }
