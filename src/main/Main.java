@@ -217,6 +217,14 @@ public class Main {
                         break;
                 }
                 break;
+            case 4:
+                switch (opcao) {
+                    case 1:
+                        System.out.println("Executando Projeto Final...");
+                        atividade2.veiculos.Veiculo.executar();
+                        break;
+                }
+                break;
         }
 
         System.out.println("\nPressione ENTER para continuar...");
